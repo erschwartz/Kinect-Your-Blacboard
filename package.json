@@ -18,7 +18,7 @@
   "dependencies": {
     "ejs": "^1.0.0",
     "express": "^4.8.7",
-    "express-session": "^1.7.6",
+    "express-session": "^1.7.6"
   },
   "homepage": "https://github.com/erschwartz/Kinect-Your-Blacboard#readme"
 }
