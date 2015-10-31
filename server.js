@@ -14,7 +14,6 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -43,9 +42,3 @@ MongoClient.connect(mongoUrl, function(err, db) {
     console.log("Connected correctly to server.");
     dataBase = db;
 });
-
-const PORT = 8080;
-function handleRequest(request, response) {
-    response.end("It works." + request.url);
-}
-

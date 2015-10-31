@@ -16,7 +16,9 @@
     "url": "https://github.com/erschwartz/Kinect-Your-Blacboard/issues"
   },
   "dependencies": {
-    "express": "^4.10.6",
+    "ejs": "^1.0.0",
+    "express": "^4.8.7",
+    "express-session": "^1.7.6",
     "mongodb": "~2.0"
   },
   "homepage": "https://github.com/erschwartz/Kinect-Your-Blacboard#readme"
