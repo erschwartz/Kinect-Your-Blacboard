@@ -9,14 +9,6 @@ var WebSocketServer = require("ws").Server
 var app = express();
 var fs = require('fs');
 
-var net = require('net');
-var tcp_server = net.createServer(function(socket)
-{
-socket.write('Joydip\n');
-socket.end('Kanjilal\n');
-});
-tcp_server.listen(8000);
-
 //var port = process.env.PORT || 5000
 
 // OCR Functionality
@@ -93,28 +85,28 @@ app.get('/', function(request, response) {
   response.render('index')
 });
 
-app.post('/', function(request, response) {
-  console.log(request);
-});
-
 var server = app.listen(app.get('port'), function() {
   var port = app.get('port')
   console.log('Node app is running at http://localhost:%s', port);
 });
 
-// renderPaths("out.png", [[
-//   {x:0,y:0},
-//   {x:100,y:100}
-// ]])
-//
-// processText("out.png");
+renderPaths("out.png", [[
+  {x:0,y:0},
+  {x:100,y:100}
+]])
+
+processText("out.png");
 
 var dgram = require('dgram');
 var socket = dgram.createSocket('udp4');
-
 socket.on('message', function(msg, rinfo) {
   console.log('Received %d bytes from %s:%d\n',
               msg.length, rinfo.address, rinfo.port);
 });
 
 socket.bind(41181);
+
+console.log("Logging test...");
+
+// var csocket = dgram.createSocket('udp4');
+// csocket.send("The end is nye.", 0, 12, 41181, '0.0.0.0');
