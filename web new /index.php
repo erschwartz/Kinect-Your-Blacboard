@@ -1,11 +1,13 @@
+<?php
+?>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="KinectHacks" content="">
-    <link rel="icon" href="icon.png">
+    <link rel="icon" href="favicon.png">
 
     <title>Kinect Your Blackboard</title>
 
@@ -28,45 +30,76 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="screen">
-    <div id="containers" >
+  <body>
+   
+      <div id="container" >
+  <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
   <a class="hiddenanchor" id="toregister"></a>
   <a class="hiddenanchor" id="tologin"></a>
   <div id="wrapper">
+    <div id="login" class="center">
+      <form  action="account.php" autocomplete="on"> 
+        <h1>Log in</h1> 
+        <p> 
+          <label for="username" class="uname" data-icon="u" > Your email or username </label>
+          <input id="username" name="username" required="required" type="text" placeholder="Username/user@gmail.com"/>
+        </p>
+        <p> 
+          <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+          <input id="password" name="password" required="required" type="password" placeholder="password" /> 
+        </p>
+        
+        <p class="login button"> 
+          <input type="submit" value="Login" /> 
+        </p>
+        <?php
+        name = mysql_query("SELECT * FROM 'user' WHERE 'name' = '$name'");
 
-      <div id="register" >
-      <form  action="account" autocomplete="on">
-        <h1> Sign up </h1>
-        <p>
-          <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-          <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="Username" />
-        </p>
-        <p>
-          <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-          <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="user@mail.com"/>
-        </p>
-        <p>
-          <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-          <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="Password"/>
-        </p>
-        <p>
-          <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-          <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="Password"/>
-        </p>
-        <p class="signin button">
-          <input type="submit" value="Sign up"/>
-        </p>
+        ?>
         <p class="change_link">
-          Already a member ?
-          <a href="index" class="to_register"> Go and log in </a>
+          Not a member to Kinect my Blackboard?
+          <a href="registerpage.html" title =" Join" target="_self">Join</a>
         </p>
       </form>
     </div>
 
-  </div> <!-- Div containeer -->
+
+    
 
 
-  <!-- Bootstrap core JavaScript
+
+    
+  
+</div> <!-- Div containeer --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

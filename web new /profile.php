@@ -1,3 +1,5 @@
+<?p
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -51,8 +53,8 @@
           <a class="navbar-brand" href="#"> <img src="logo.png" style="width:500px;height:25px;border:0;"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-           <li class="fred"><a href="account"><font size=5px>Back</font></a><li>
+          <ul class="nav navbar-nav navbar-right">   
+           <li class="fred"><a href="account.php"><font size=5px>Back</font></a><li>  
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -65,15 +67,15 @@
 
 	<h3 class="chalkfont"> Saved files</h3>
 	<div id="padfile"> <!-- saved files -->
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p></div>
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p> </div>
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p></div>
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p></div>
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p></div>
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p></div>
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p></div>
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p></div>
-		<div class="savedfiles"> <p class="padmid"><a  href="account">create new file</a></p></div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p></div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p> </div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p></div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p></div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p></div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p></div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p></div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p></div>
+		<div class="savedfiles"> <p class="padmid"><a  href="account.php">create new file</a></p></div>
 
 
 

@@ -1,3 +1,5 @@
+<?php
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -48,8 +50,8 @@
           <a class="navbar-brand" href="#"> <img src="logo.png" style="width:500px;height:25px;border:0;"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-           <li class= "fred"><a href="profile"><font size=5px>kinecthacks</font></a><li>
+          <ul class="nav navbar-nav navbar-right">   
+           <li class= "fred"><a href="profile.php"><font size=5px>kinecthacks</font></a><li>  
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -144,14 +146,6 @@ Henry "Harry" Fox (30 September 1856 – on or after 30 August 1888) was an Engl
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-<<<<<<< Updated upstream:website/account.ejs
-
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"> <img src="download.png" onmouseover="this.src='download2.png'"onmouseout="this.src='download.png'" style="width:50px;height:50px;border:0;"> </a></li>
-            <li><a href="account"> <img src="trash.png" onmouseover="this.src='trash2.png'"onmouseout="this.src='trash.png'" style="width:50px;height:50px;border:0;">  </a></li>
-=======
           <a class="navbar-brand" href="index.html"><font class="fred" size="5px">logout</font></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
@@ -159,7 +153,6 @@ Henry "Harry" Fox (30 September 1856 – on or after 30 August 1888) was an Engl
             <li><a href="#" id="start"> <img src="start.png" onclick="this.src='pause.png'"ondblclick="this.src='start.png'" style="width:50px;height:50px;border:0;"> </a></li>
             <li><a href="#" id="downloadLink"> <img src="download.png" onmouseover="this.src='download2.png'"onmouseout="this.src='download.png'" style="width:50px;height:50px;border:0;"> </a></li>
             <li><a href="#" id="clear"> <img src="trash.png" onmouseover="this.src='trash2.png'"onmouseout="this.src='trash.png'" style="width:50px;height:50px;border:0;">  </a></li>
->>>>>>> Stashed changes:website/account.php
             <li><a href="#"> <img src="save.png" onmouseover="this.src='save2.png'"onmouseout="this.src='save.png'" style="width:50px;height:50px;border:0;">  </a></li>
 
 
@@ -169,7 +162,7 @@ Henry "Harry" Fox (30 September 1856 – on or after 30 August 1888) was an Engl
       </div>
     </nav>
 
-
+	
 </body>
 
 
