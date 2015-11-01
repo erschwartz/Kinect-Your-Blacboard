@@ -101,7 +101,11 @@ var server = app.listen(app.get('port'), function() {
 });
 
 renderPaths("out.png", [[
-  {x:2,y:2},
-  {x:200,y:200},
-  {x:400,y:2}
+  {x:0,y:0},
+  {x:50,y:200},
+  {x:100,y:0},
+  {x:150,y:200},
+  {x:200,y:0},
 ]])
+
+processText("out.png");
