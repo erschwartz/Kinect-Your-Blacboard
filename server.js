@@ -76,31 +76,28 @@ app.set('sessionData', data);
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/website'));
 
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/website');
 app.set('view engine', 'ejs');
 
-// Basic homepage, should have useful links
+app.get('/account', function(request, response) {
+  response.render('account');
+});
+
+app.get('/profile', function(request, response) {
+  response.render('profile');
+})
+
+app.get('/registerpage', function(request, response) {
+  response.render('registerpage');
+});
+
 app.get('/', function(request, response) {
-  response.render('pages/index');
-});
-
-// A list of the active sessions
-app.get('/sessions', function(request, response) {
-  response.render('pages/sessions')
-});
-
-// Connect to a specific session
-app.get('/session', function(request, response) {
-  response.render('pages/session')
+  response.render('index')
 });
 
 app.post('/', function(request, response) {
-});
-
-// accept
-app.post('/host-session', function(request, response) {
 
 });
 
