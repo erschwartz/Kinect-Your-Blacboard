@@ -1,4 +1,4 @@
-
+/*
 // Require relevent stuff
 var assert = require('assert');
 var http = require('http');
@@ -90,10 +90,82 @@ var server = app.listen(app.get('port'), function() {
   var port = app.get('port')
   console.log('Node app is running at http://localhost:%s', port);
 });
-//
-renderPaths("out.png", [[
-  {x:0,y:0},
-  {x:100,y:100}
-]])
 
-processText("out.png");
+var net = require('net');
+
+var myserver = net.createServer(function(socket)
+	{
+		socket.write('Joydip\n');
+        socket.write('fogoerigj\n');
+		socket.end('Kanjilal\n');
+
+//		socket.write('Echo server\r\n');
+//		socket.pipe(socket);
+	});
+
+myserver.listen(8000, '127.0.0.1');
+
+// var client = new net.Socket();
+// client.connect(8000, '127.0.0.1', function() {
+//     console.log("Connected.");
+//     //client.write('Hello, bcbjkscb');
+// });
+//
+// client.on('data', function(data) {
+//     console.log("received: " + data);
+// });
+//
+// client.on('close', function() {
+//     console.log('Connection closed.');
+// });
+
+
+//
+
+// renderPaths("out.png", [[
+//   {x:0,y:0},
+//   {x:100,y:100}
+// ]])
+//
+// processText("out.png");
+*/
+
+
+
+//websocket gateway on 8070
+var app = require('http').createServer(handler)
+  , io = require('socket.io').listen(app)
+  , fs = require('fs');
+var mysocket = 0;
+app.listen(8070);
+function handler (req, res) {
+  fs.readFile(__dirname + '/index.html',
+  function (err, data) {
+    if (err) {
+      res.writeHead(500);
+      return res.end('Error loading index.html');
+    }
+    res.writeHead(200);
+    res.end(data);
+  });
+}
+io.sockets.on('connection', function (socket) {
+  console.log('index.html connected');
+  mysocket = socket;
+});
+
+//udp server on 41181
+var dgram = require("dgram");
+var server = dgram.createSocket("udp4");
+server.on("message", function (msg, rinfo) {
+  console.log("msg: " + msg);
+  if (mysocket != 0) {
+     mysocket.emit('field', "" + msg);
+     mysocket.broadcast.emit('field', "" + msg);
+  }
+});
+server.on("listening", function () {
+  var address = server.address();
+  console.log("udp server listening " + address.address + ":" + address.port);
+});
+server.bind(41181);
