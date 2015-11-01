@@ -1,7 +1,13 @@
 @font-face { font-family: CHALK; src: url('AngryChalk.ttf'); } 
 @font-face { font-family: CHALK; font-weight: bold; src: url('AngryChalk.ttf');}
 
+.copyright{
+	font-weight: bold;
+	font-family: serif;
+	text-align: bottom;
+	
 
+}
 .fred{
 	font-family: 'Fredericka the Great',cursive;
 }
@@ -38,7 +44,7 @@
 
 }
 .chalkboard{
-	background-image: url('chalkboard.jpeg');
+	background-color: black;
 	background-repeat: no-repeat;
 	background-size: cover;
 	

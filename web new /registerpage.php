@@ -76,4 +76,5 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
+   <p class="copyright"> Powered by <img src="micro.png" style="width:15px;height:15px;border:0" > Microsoft -©</p>
 </html>
