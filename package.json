@@ -1,13 +1,14 @@
 {
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "kinect-your-blackboard",
   "dependencies": {
     "canvas": "^1.1.0",
     "ejs": "^1.0.0",
     "express": "^4.8.7",
     "express-session": "^1.7.6",
     "node-tesseract": "^0.2.7"
-  }
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "private": true
 }
