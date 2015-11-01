@@ -90,7 +90,7 @@ var server = app.listen(app.get('port'), function() {
   var port = app.get('port')
   console.log('Node app is running at http://localhost:%s', port);
 });
-//
+
 renderPaths("out.png", [[
   {x:0,y:0},
   {x:100,y:100}
