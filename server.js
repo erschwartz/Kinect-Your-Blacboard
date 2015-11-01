@@ -90,18 +90,24 @@ var server = app.listen(app.get('port'), function() {
   console.log('Node app is running at http://localhost:%s', port);
 });
 
-renderPaths("out.png", [[
-  {x:0,y:0},
-  {x:100,y:100}
-]])
-
-processText("out.png");
+var points = [];
 
 var dgram = require('dgram');
 var socket = dgram.createSocket('udp4');
 socket.on('message', function(msg, rinfo) {
   console.log('Received %d bytes from %s:%d\n',
               msg.length, rinfo.address, rinfo.port);
+  var numbers = msg.split(",")
+  var x = parseFloat(numbers[0]);
+  var y = parseFloat(numbers[1]);
+  if (x == -1 && y == -1) {
+    var thepaths = [points];
+    renderPaths("out.png", thepaths);
+    processText("out.png");
+    points = [];
+  } else {
+    points.push({x:x, y:y});
+  }
 });
 
 socket.bind(41181);
