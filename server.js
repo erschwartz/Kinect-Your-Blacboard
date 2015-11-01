@@ -9,7 +9,7 @@ var Image = Canvas.Image;
 var app = express();
 var fs = require('fs');
 
-// Functionality
+// OCR Functionality
 var processText = function(imagePath) {
   tesseract.process(__dirname + "/" + imagePath, {
     psm: 6
@@ -23,8 +23,8 @@ var processText = function(imagePath) {
   });
 }
 
-// Takes an array of arrays of points (objects with x and y fields), and draws
-// an image.
+// Takes an array of arrays of points (objects with x and y fields), draws
+// an image, and outputs the image to a file.
 var renderPaths = function(outFile, paths) {
   var BORDER = 5;
   var minX = Number.MAX_VALUE
@@ -58,9 +58,7 @@ var renderPaths = function(outFile, paths) {
     }
     ctx.stroke();
   }
-  fs.writeFile(outFile, canvas.toBuffer(), 'ascii', function(err) {
-    console.log(err);
-  });
+  fs.writeFile(outFile, canvas.toBuffer(), 'ascii', function(err) {});
 }
 
 // This variable represents the database part of the application - the parts that should be a database
@@ -87,6 +85,9 @@ app.get('/sessions', function(request, response) {
 // Connect to a specific session
 app.get('/session', function(request, response) {
   response.render('pages/session')
+});
+
+app.post('/', function(request, response) {
 });
 
 // accept
