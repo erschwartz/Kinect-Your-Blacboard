@@ -11,15 +11,15 @@ var fs = require('fs');
 
 //var port = process.env.PORT || 5000
 
-var pngId = 0;
+//var pngId = 0;
 
 // OCR Functionality
 var processText = function(imagePath) {
-  tesseract.process(__dirname + "/" + imagePath, {
+  tesseract.process(imagePath, {
     psm: 10
   },
   function(err, text) {
-    fs.unlink(imagePath);
+//    fs.unlink(imagePath);
     if(err) {
         console.error(err);
     } else {
@@ -58,7 +58,9 @@ var renderPaths = function(outFile, paths) {
       g.drawLine(p1.x - minX + BORDER, p1.y - minY + BORDER, p2.x - minX + BORDER, p2.y - minY + BORDER);
     }
   }
-  g.write(outFile, function(err) {});
+  g.write(outFile, function(err) {
+      processText(outFile);
+  });
 }
 
 // This variable represents the database part of the application - the parts that should be a database
@@ -98,18 +100,17 @@ var points = [];
 var dgram = require('dgram');
 var socket = dgram.createSocket('udp4');
 socket.on('message', function(msg, rinfo) {
-  console.log('Received %d bytes from %s:%d\n',
-              msg.length, rinfo.address, rinfo.port);
-  var numbers = msg.split(",")
+  // console.log('Received %d bytes from %s:%d\n',
+  //             msg.length, rinfo.address, rinfo.port);
+  var numbers = msg.toString('ascii').split(",");
   var x = parseFloat(numbers[0]);
   var y = parseFloat(numbers[1]);
   if (x == -1 && y == -1) {
     if (points.length > 5) {
-      pngId++;
+//      pngId++;
       var thepaths = [points];
-      var pic = "out" + pngId + ".png"
+      var pic = "out.png";
       renderPaths(pic, thepaths);
-      processText(pic);
       points = [];
     }
   } else {
