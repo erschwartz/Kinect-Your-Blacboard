@@ -9,7 +9,16 @@ var WebSocketServer = require("ws").Server
 //var Image = Canvas.Image;
 var app = express();
 var fs = require('fs');
-var port = process.env.PORT || 5000
+
+var net = require('net'); 
+var tcp_server = net.createServer(function(socket) 
+{ 
+socket.write('Joydip\n'); 
+socket.end('Kanjilal\n'); 
+}); 
+tcp_server.listen(8000);
+
+//var port = process.env.PORT || 5000
 
 // OCR Functionality
 var processText = function(imagePath) {
@@ -103,26 +112,26 @@ app.post('/', function(request, response) {
   console.log(request);
 });
 
-var server = http.createServer(app)
-server.listen(port)
+// var server = http.createServer(app)
+// server.listen(port)
 
-console.log("http server listening on %d", port)
+// console.log("http server listening on %d", port)
 
-var wss = new WebSocketServer({server: server})
-console.log("websocket server created")
+// var wss = new WebSocketServer({server: server})
+// console.log("websocket server created")
 
-wss.on("connection", function(ws) {
-  var id = setInterval(function() {
-    ws.send(JSON.stringify(new Date()), function() {  })
-  }, 1000)
+// wss.on("connection", function(ws) {
+//   var id = setInterval(function() {
+//     ws.send(JSON.stringify(new Date()), function() {  })
+//   }, 1000)
 
-  console.log("websocket connection open")
+//   console.log("websocket connection open")
 
-  ws.on("close", function() {
-    console.log("websocket connection close")
-    clearInterval(id)
-  })
-})
+//   ws.on("close", function() {
+//     console.log("websocket connection close")
+//     clearInterval(id)
+//   })
+// })
 
 // var server = app.listen(app.get('port'), function() {
 //   var port = app.get('port')
