@@ -11,12 +11,15 @@ var fs = require('fs');
 
 //var port = process.env.PORT || 5000
 
+var pngId = 0;
+
 // OCR Functionality
 var processText = function(imagePath) {
   tesseract.process(__dirname + "/" + imagePath, {
-    psm: 6
+    psm: 10
   },
   function(err, text) {
+    fs.unlink(imagePath);
     if(err) {
         console.error(err);
     } else {
@@ -101,10 +104,14 @@ socket.on('message', function(msg, rinfo) {
   var x = parseFloat(numbers[0]);
   var y = parseFloat(numbers[1]);
   if (x == -1 && y == -1) {
-    var thepaths = [points];
-    renderPaths("out.png", thepaths);
-    processText("out.png");
-    points = [];
+    if (points.length > 5) {
+      pngId++;
+      var thepaths = [points];
+      var pic = "out" + pngId + ".png"
+      renderPaths(pic, thepaths);
+      processText(pic);
+      points = [];
+    }
   } else {
     points.push({x:x, y:y});
   }
