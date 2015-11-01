@@ -1,19 +1,7 @@
 {
-  "name": "kinectyourblackboard",
-  "version": "1.0.0",
-  "description": "\"Kinect a blackboard.\"",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/erschwartz/Kinect-Your-Blacboard.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/erschwartz/Kinect-Your-Blacboard/issues"
   },
   "dependencies": {
     "canvas": "^1.1.0",
@@ -21,6 +9,5 @@
     "express": "^4.8.7",
     "express-session": "^1.7.6",
     "node-tesseract": "^0.2.7"
-  },
-  "homepage": "https://github.com/erschwartz/Kinect-Your-Blacboard#readme"
+  }
 }
