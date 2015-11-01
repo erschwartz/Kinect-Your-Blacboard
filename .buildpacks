@@ -1,2 +1,4 @@
 https://github.com/heroku/heroku-buildpack-nodejs.git
 https://github.com/mcollina/heroku-buildpack-graphicsmagick
+https://github.com/ddollar/heroku-buildpack-apt
+https://github.com/Papiel/heroku-buildpack-tesseract

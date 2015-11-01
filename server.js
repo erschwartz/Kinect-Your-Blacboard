@@ -3,9 +3,8 @@
 var assert = require('assert');
 var http = require('http');
 var express = require('express');
-//var tesseract = require('node-tesseract');
-//var Canvas = require('canvas');
-//var Image = Canvas.Image;
+var tesseract = require('node-tesseract');
+var gm = require('gm');
 var app = express();
 var fs = require('fs');
 
@@ -26,7 +25,7 @@ var processText = function(imagePath) {
 // Takes an array of arrays of points (objects with x and y fields), draws
 // an image, and outputs the image to a file.
 var renderPaths = function(outFile, paths) {
-  var BORDER = 5;
+  var BORDER = 10;
   var minX = Number.MAX_VALUE
   var maxX = Number.MIN_VALUE
   var minY = Number.MAX_VALUE
@@ -43,31 +42,17 @@ var renderPaths = function(outFile, paths) {
   }
   var xSize = maxX - minX + 2 * BORDER;
   var ySize = maxY - minY + 2 * BORDER;
-  var canvas = new Canvas(xSize , ySize);
-  var ctx = canvas.getContext('2d');
-  var drawCircle = function(x, y) {
-    ctx.beginPath();
-    ctx.arc(x + BORDER, y - minY + BORDER, 5, 0, Math.PI*2, true);
-    ctx.closePath();
-    ctx.fill();
-  }
-  ctx.fillStyle="#FFFFFF";
-  ctx.fillRect(0, 0, xSize, ySize);
-  ctx.lineWidth = 10;
-  ctx.lineJoin = "round";
-  ctx.fillStyle="#000000";
+  var g = gm(xSize, ySize, "#FFFFFF");
+  g.stroke("#000", BORDER);
   for (i = 0; i < paths.length; i++) {
     var path = paths[i];
-    ctx.beginPath();
-    for (j = 0; j < path.length; j++) {
-      var point = path[j];
-      ctx.lineTo(point.x - minX + BORDER, point.y - minY + BORDER);
+    for (j = 0; j < path.length - 1; j++) {
+      var p1 = path[j];
+      var p2 = path[j+1];
+      g.drawLine(p1.x - minX + BORDER, p1.y - minY + BORDER, p2.x - minX + BORDER, p2.y - minY + BORDER);
     }
-    ctx.stroke();
-    drawCircle(path[0].x, path[0].y);
-    drawCircle(path[path.length - 1].x, path[path.length - 1].y);
   }
-  fs.writeFile(outFile, canvas.toBuffer(), 'ascii', function(err) {});
+  g.write(outFile, function(err) {});
 }
 
 // This variable represents the database part of the application - the parts that should be a database
@@ -106,8 +91,9 @@ var server = app.listen(app.get('port'), function() {
   console.log('Node app is running at http://localhost:%s', port);
 });
 //
-// renderPaths("out.png", [[
-//   {x:0,y:0}
-// ]])
+renderPaths("out.png", [[
+  {x:0,y:0},
+  {x:100,y:100}
+]])
 //
 // processText("out.png");
