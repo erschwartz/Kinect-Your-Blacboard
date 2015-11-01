@@ -15,12 +15,12 @@ var WebSocketServer = require("ws").Server
 var app = express();
 var fs = require('fs');
 
-var net = require('net'); 
-var tcp_server = net.createServer(function(socket) 
-{ 
-socket.write('Joydip\n'); 
-socket.end('Kanjilal\n'); 
-}); 
+var net = require('net');
+var tcp_server = net.createServer(function(socket)
+{
+socket.write('Joydip\n');
+socket.end('Kanjilal\n');
+});
 tcp_server.listen(8000);
 
 //var port = process.env.PORT || 5000
@@ -186,7 +186,7 @@ var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)
   , fs = require('fs');
 var mysocket = 0;
-app.listen(8070);
+app.listen(8070 || process.env.PORT);
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
   function (err, data) {
