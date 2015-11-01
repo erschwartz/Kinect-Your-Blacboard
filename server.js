@@ -45,10 +45,17 @@ var renderPaths = function(outFile, paths) {
   var ySize = maxY - minY + 2 * BORDER;
   var canvas = new Canvas(xSize , ySize);
   var ctx = canvas.getContext('2d');
+  var drawCircle = function(x, y) {
+    ctx.beginPath();
+    ctx.arc(x + BORDER, y - minY + BORDER, 5, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fill();
+  }
   ctx.fillStyle="#FFFFFF";
   ctx.fillRect(0, 0, xSize, ySize);
   ctx.lineWidth = 10;
   ctx.lineJoin = "round";
+  ctx.fillStyle="#000000";
   for (i = 0; i < paths.length; i++) {
     var path = paths[i];
     ctx.beginPath();
@@ -57,6 +64,8 @@ var renderPaths = function(outFile, paths) {
       ctx.lineTo(point.x - minX + BORDER, point.y - minY + BORDER);
     }
     ctx.stroke();
+    drawCircle(path[0].x, path[0].y);
+    drawCircle(path[path.length - 1].x, path[path.length - 1].y);
   }
   fs.writeFile(outFile, canvas.toBuffer(), 'ascii', function(err) {});
 }
@@ -101,11 +110,7 @@ var server = app.listen(app.get('port'), function() {
 });
 
 renderPaths("out.png", [[
-  {x:0,y:0},
-  {x:50,y:200},
-  {x:100,y:0},
-  {x:150,y:200},
-  {x:200,y:0},
+  {x:0,y:0}
 ]])
 
 processText("out.png");
