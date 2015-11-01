@@ -3,9 +3,9 @@
 var assert = require('assert');
 var http = require('http');
 var express = require('express');
-var tesseract = require('node-tesseract');
-var Canvas = require('canvas');
-var Image = Canvas.Image;
+//var tesseract = require('node-tesseract');
+//var Canvas = require('canvas');
+//var Image = Canvas.Image;
 var app = express();
 var fs = require('fs');
 
@@ -108,7 +108,7 @@ var server = app.listen(app.get('port'), function() {
   var port = app.get('port')
   console.log('Node app is running at http://localhost:%s', port);
 });
-// 
+//
 // renderPaths("out.png", [[
 //   {x:0,y:0}
 // ]])
