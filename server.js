@@ -3,11 +3,13 @@
 var assert = require('assert');
 var http = require('http');
 var express = require('express');
+var WebSocketServer = require("ws").Server
 //var tesseract = require('node-tesseract');
 //var Canvas = require('canvas');
 //var Image = Canvas.Image;
 var app = express();
 var fs = require('fs');
+var port = process.env.PORT || 5000
 
 // OCR Functionality
 var processText = function(imagePath) {
@@ -101,10 +103,32 @@ app.post('/', function(request, response) {
   console.log(request);
 });
 
-var server = app.listen(app.get('port'), function() {
-  var port = app.get('port')
-  console.log('Node app is running at http://localhost:%s', port);
-});
+var server = http.createServer(app)
+server.listen(port)
+
+console.log("http server listening on %d", port)
+
+var wss = new WebSocketServer({server: server})
+console.log("websocket server created")
+
+wss.on("connection", function(ws) {
+  var id = setInterval(function() {
+    ws.send(JSON.stringify(new Date()), function() {  })
+  }, 1000)
+
+  console.log("websocket connection open")
+
+  ws.on("close", function() {
+    console.log("websocket connection close")
+    clearInterval(id)
+  })
+})
+
+// var server = app.listen(app.get('port'), function() {
+//   var port = app.get('port')
+//   console.log('Node app is running at http://localhost:%s', port);
+// });
+
 //
 // renderPaths("out.png", [[
 //   {x:0,y:0}
