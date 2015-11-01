@@ -95,5 +95,5 @@ renderPaths("out.png", [[
   {x:0,y:0},
   {x:100,y:100}
 ]])
-//
-// processText("out.png");
+
+processText("out.png");
