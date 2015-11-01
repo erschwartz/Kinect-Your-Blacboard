@@ -98,7 +98,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/', function(request, response) {
-
+  console.log(request);
 });
 
 var server = app.listen(app.get('port'), function() {
