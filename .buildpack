@@ -1,0 +1,4 @@
+https://github.com/heroku/heroku-buildpack-nodejs.git
+https://github.com/mojodna/heroku-buildpack-cairo.git
+https://github.com/ddollar/heroku-buildpack-apt.git
+https://github.com/Papial/heroku-buildpack-tesseract.git
