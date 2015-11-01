@@ -1,3 +1,5 @@
+<?php
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -33,37 +35,37 @@
   <a class="hiddenanchor" id="toregister"></a>
   <a class="hiddenanchor" id="tologin"></a>
   <div id="wrapper">
-
+      
       <div id="register" >
-      <form  action="account" autocomplete="on">
-        <h1> Sign up </h1>
-        <p>
+      <form  action="account.php" autocomplete="on"> 
+        <h1> Sign up </h1> 
+        <p> 
           <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
           <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="Username" />
         </p>
-        <p>
+        <p> 
           <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-          <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="user@mail.com"/>
+          <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="user@mail.com"/> 
         </p>
-        <p>
+        <p> 
           <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
           <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="Password"/>
         </p>
-        <p>
+        <p> 
           <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
           <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="Password"/>
         </p>
-        <p class="signin button">
-          <input type="submit" value="Sign up"/>
+        <p class="signin button"> 
+          <input type="submit" value="Sign up"/> 
         </p>
-        <p class="change_link">
+        <p class="change_link">  
           Already a member ?
-          <a href="index" class="to_register"> Go and log in </a>
+          <a href="index.html" class="to_register"> Go and log in </a>
         </p>
       </form>
     </div>
 
-  </div> <!-- Div containeer -->
+  </div> <!-- Div containeer --> 
 
 
   <!-- Bootstrap core JavaScript
